@@ -7,7 +7,13 @@
 </head>
 
 <body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
+      <div class="navbar-header">
+        <a href="index.php" class="navbar-brand">Loja PHP</a>
+      </div>
+    </div>
+  </div>
 
+    <div class="container">
         <div class="principal">
-    <!-- fim cabecalho.php -->

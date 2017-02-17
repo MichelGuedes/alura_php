@@ -1,7 +1,4 @@
-<!-- início rodape.php -->
-        </div> <!-- fim div principal -->
-
-    </div> <!-- fim div container -->
-
+        </div>
+    </div>
 </body>
 </html>

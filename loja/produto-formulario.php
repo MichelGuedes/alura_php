@@ -1,15 +1,23 @@
-<?php include "cabecalho.php" ?>
+<?php include("cabecalho.php"); ?>
 
-    <form action="adiciona-produto.php" method="post">
-      <h1>Cadastro de produtos</h1>
+<h1>Formulário de cadastro</h1>
+<form action="adiciona-produto.php">
+  <table class="table">
+    <tr>
+      <td>Nome: </td>
+      <td><input type="text" name="nome" /></td>
+    </tr>
 
-      <label for="produtoNome">Nome do produto: </label>
-      <input label="Nome do Produto" type="text" name="produtoNome" placeholder="Digite o nome do produto" autofocus><br>
+    <tr>
+      <td>Preço: </td>
+      <td><input type="number" name="preco" /><br/></td>
+    </tr>
 
-      <label for="produtoPreco">Preço do produto:</label>
-      <input label = "Preço do Produto" type="text" placeholder="Digite o valor do produto" name="produtoPreco" ><br>
+    <tr>
+      <td><button type="submit" class="btn btn-primary">Cadastrar</button></td>
+      <td></td>
+    </tr>
+  </table>
+</form>
 
-      <input type="submit" value="Enviar" value="Cadastrar">
-    </form>
-
-<?php include "rodape.php" ?>
+<?php include("rodape.php"); ?>

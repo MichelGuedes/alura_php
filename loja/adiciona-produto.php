@@ -1,15 +1,29 @@
-<?php include "cabecalho.php" ?>
+<?php include("cabecalho.php"); ?>
 
-    <h1>Cadastro de Produtos</h1>
+<?php
+  function insereProduto($conexao, $nome, $preco){
+    $query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
+    $resultado = mysqli_query($conexao, $query);
 
-    <p>
-      <?php
-        $produtoNome = $_POST["produtoNome"];
-        $produtoPreco = $_POST["produtoPreco"];
+    return $resultado;
+  }
+?>
 
-        echo "Produto " . $produtoNome .
-             " de valor " . $produtoPreco . " adicionado com sucesso.";
-      ?>
+<?php
+$nome = $_GET["nome"];
+$preco = $_GET["preco"];
+
+$conn = mysqli_connect('localhost', 'root', '', 'loja');
+
+if(insereProduto($conn, $nome, $preco)) { ?>
+    <p class="alert-success">
+        Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!
     </p>
+<?php } else {
+    $errMessage = mysqli_error($conn); ?>
+    <p class="alert-danger">
+        Produto <?= $nome; ?> não foi adicionado: <?= $errMessage ?>
+    </p>
+<?php } ?>
 
-<?php include "rodape.php" ?>
+<?php include("rodape.php"); ?>

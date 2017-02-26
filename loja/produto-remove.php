@@ -3,7 +3,7 @@
 <?php include("banco-produto.php"); ?>
 
 <?php
-  $idProduto = $_GET['id'];
+  $idProduto = $_POST['id'];
   if(apagaProduto($conn, $idProduto)){
     header("Location: produto-lista.php?removido=true");
   }

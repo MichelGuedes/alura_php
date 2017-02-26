@@ -12,8 +12,8 @@ function listaProdutos($conn){
 }
 
 //insere um novo produto na tabela do banco de dados
-function insereProduto($conexao, $nome, $preco){
-  $query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
+function insereProduto($conexao, $nome, $preco, $descricao){
+  $query = "insert into produtos (nome, preco, descricao) values ('{$nome}', {$preco}, '{$descricao}')";
   $resultado = mysqli_query($conexao, $query);
 
   return $resultado;

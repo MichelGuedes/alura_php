@@ -6,7 +6,7 @@
 
 <?php
   /*sempre usar os tres iguais abaixo, para garantir os valores na conversao do parametro*/
-  if ((array_key_exists('removido', $_GET))&&($_GET['removido'] === true)){ ?>
+  if ((array_key_exists('removido', $_POST))&&($_POST['removido'] === true)){ ?>
     <p class="alert-success">Produto removido com sucesso.</p>
   <?php }
  ?>
@@ -15,6 +15,7 @@
   <tr class="table-header">
     <td>Produto</td>
     <td>Valor</td>
+    <td>Descrição</td>
     <td></td>
   </tr>
 
@@ -25,7 +26,13 @@
     <tr>
       <td><?= $produto['nome'] ?></td>
       <td><?= $produto['preco'] ?></td>
-      <td><a href="produto-remove.php?id=<?=$produto['id']?>" class="btn btn-danger">Remover Produto</a></td>
+      <td><?= substr($produto['descricao'], 0, 50) ?></td>
+      <td>
+        <form action="produto-remove.php" method="post">
+          <input type="hidden" name="id" value="<?=$produto['id']?>">
+          <button class="btn btn-danger">Remover produto</button>
+        </form>
+      </td>
     </tr>
   <?php } ?>
 

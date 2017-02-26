@@ -3,18 +3,21 @@
 <?php include("cabecalho.php"); ?>
 
 <?php
-$nome = $_GET["nome"];
-$preco = $_GET["preco"];
+$nome = $_POST["nome"];
+$preco = $_POST["preco"];
+$descricao = $_POST["descricao"];
 
-if(insereProduto($conn, $nome, $preco)) { ?>
-    <p class="alert-success">
-        Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!
-    </p>
+if(insereProduto($conn, $nome, $preco, $descricao)) { ?>
+  <h1>Resultado: </h1>
+  <p class="alert-success">
+    Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!
+  </p>
 <?php } else {
-    $errMessage = mysqli_error($conn); ?>
-    <p class="alert-danger">
-        Produto <?= $nome; ?> não foi adicionado: <?= $errMessage ?>
-    </p>
+  $errMessage = mysqli_error($conn); ?>
+  <h1>Resultado: </h1>
+  <p class="alert-danger">
+    Produto <?= $nome; ?> não foi adicionado: <?= $errMessage ?>
+  </p>
 <?php } ?>
 
 <?php include("rodape.php"); ?>

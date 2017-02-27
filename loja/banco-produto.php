@@ -1,7 +1,9 @@
 <?php
 //busca todos os produtos no banco de dados e retorna um array com os valores encontrados
 function listaProdutos($conn){
-  $result = mysqli_query($conn, "select * from produtos");
+  $result = mysqli_query($conn, "SELECT p.*, c.descricao as descricao_categoria
+                                   from produtos p
+                             INNER JOIN categorias c on c.id = p.categoria_id");
   $arrProdutos = array();
 
   while ($produto = mysqli_fetch_assoc($result)) {
@@ -12,8 +14,8 @@ function listaProdutos($conn){
 }
 
 //insere um novo produto na tabela do banco de dados
-function insereProduto($conexao, $nome, $preco, $descricao){
-  $query = "insert into produtos (nome, preco, descricao) values ('{$nome}', {$preco}, '{$descricao}')";
+function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id){
+  $query = "insert into produtos (nome, preco, descricao, categoria_id) values ('{$nome}', {$preco}, '{$descricao}', {$categoria_id})";
   $resultado = mysqli_query($conexao, $query);
 
   return $resultado;

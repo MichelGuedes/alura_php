@@ -6,8 +6,9 @@
 $nome = $_POST["nome"];
 $preco = $_POST["preco"];
 $descricao = $_POST["descricao"];
+$categoria_id = $_POST["categoria_id"];
 
-if(insereProduto($conn, $nome, $preco, $descricao)) { ?>
+if(insereProduto($conn, $nome, $preco, $descricao, $categoria_id)) { ?>
   <h1>Resultado: </h1>
   <p class="alert-success">
     Produto <?= $nome; ?>, <?= $preco; ?> adicionado com sucesso!

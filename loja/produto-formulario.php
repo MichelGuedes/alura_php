@@ -21,17 +21,24 @@
     </tr>
 
     <tr>
+      <td>Usado?: </td>
+      <td><input type="checkbox" name="usado" value="true"></td>
+    </tr>
+
+    <tr>
       <td>Categoria: </td>
 
       <?php
         $arrayCategorias = listaCategorias($conn); ?>
 
         <td>
-          <?php
-            foreach ($arrayCategorias as $categoria) { ?>
-              <input type="radio" name="categoria_id" value="<?= $categoria['id']?>"> <?= $categoria['descricao'] ?></br>
-            <?php }
-          ?>
+          <select class="form-control" name="categoria_id">
+            <?php
+              foreach ($arrayCategorias as $categoria) { ?>
+                <option value="<?=$categoria['id']?>"><?= $categoria['descricao']?></option>
+              <?php }
+            ?>
+          </select>
         </td>
     </tr>
 
